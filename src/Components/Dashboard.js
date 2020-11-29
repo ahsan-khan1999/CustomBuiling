@@ -5,7 +5,7 @@ import Card from './Card';
 import Chart from './Chart'
 import DougnutChart from './DougnutChart';
 import Dropdown from 'react-dropdown'
-export default function Dashboard({ data }) {
+export default function Dashboard({ title, value, description }) {
 
 
     const chartData = [{
@@ -44,22 +44,7 @@ export default function Dashboard({ data }) {
 
     return ( <
         div >
-        <
-        Card title = "Hello"
-        value = ""
-        description = "Hello World" / >
-        <
-        Card title = "Hello"
-        value = { 1010 }
-        description = "Hello World" / >
-        <
-        Card title = "Hello"
-        value = { 1010 }
-        description = "Hello World" / >
-        <
-        Card title = "Hello"
-        value = { 1010 }
-        description = "Hello World" / >
+
 
         <
         Chart data = { chartData }

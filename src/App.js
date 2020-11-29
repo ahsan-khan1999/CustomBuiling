@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import Dashboard from './Components/Dashboard'
 import Dropdown from 'react-dropdown'
+import Card from './Components/Card'
+import { Container, Col, Row } from 'react-bootstrap';
 
 function App() {
 
@@ -29,7 +31,7 @@ function App() {
         spreadsheetId: '1vcDPrMexD8bxNwwzK9IxF8wch6Hfezq2eooJACDiqgg'
     }
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId
-    }/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${config.apiKey}`;
+        }/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${config.apiKey}`;
 
     const getData = args => {
         const arr = items;
@@ -72,7 +74,9 @@ function App() {
     }
 
     const update = (e) => {
+        getData(e.value);
         setSelected(e.target.value);
+
     }
     useEffect(() => {
         function handleGetJson() {
@@ -133,20 +137,80 @@ function App() {
     useEffect(() => {
         let d = getData(selected);
     }, [selected]);
-    console.log(newUsers)
-    return ( <
-        div className = "App" >
-        <
-        select value = { selected }
-        onChange = {
-            update
-        } > {
-            dropDownOptions.map((option) => ( <
-                option value = { option } > { option } < /option>
+    // console.log(newUsers)
+    return (
+       
+            <
+        div className="App" >
+<Container fluid>
+                <
+        select value={selected}
+                    onChange={
+                        update
+                    } > {
+                        dropDownOptions.map((option) => (<
+                option value={option} > { option} < /option>
             ))
         } <
-        /select>  < /
-        div >
+        /select>
+        <
+        /Container>
+    
+    
+      
+    
+                                <
+                                    Card title="Organic Source"
+                                    value={organicSources}
+                                    description="Our Organic Sources" />
+
+                                <
+                                    Card title="Direct Source"
+                                    value={directSources}
+                                    description="Our Direct Sources" />
+
+                                <
+                                    Card title="referral Source"
+                                    value={referralSources}
+                                    description="Our Referral Sources" />
+
+                                <
+                                    Card title="social Source"
+                                    value={socialSources}
+                                    description="Our social Sources" />
+
+                                <
+                                    Card title="Email Source"
+                                    value={emailSources}
+                                    description="Our Email Sources" />
+
+                                <
+                                    Card title="Page Views "
+                                    value={pageView}
+                                    description="Our Page Views" />
+
+                                <
+                                    Card title="Users "
+                                    value={users}
+                                    description="Our Users" />
+
+
+                                <
+                                    Card title="New Users"
+                                    value={newUsers}
+                                    description="Our New Users" />
+                                <
+                                    Card title="Sessions"
+                                    value={sessions}
+                                    description="Our Sessions" />
+
+                                <
+                                    Card title="Bounce rate"
+                                    value={bounseRate}
+                                    description="Our Bounse Rate" />
+                                <
+        /
+        div>
     );
 }
 
