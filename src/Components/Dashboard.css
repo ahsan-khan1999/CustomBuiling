@@ -1,0 +1,37 @@
+body {
+    background-color: grey;
+    color: black;
+}
+
+.container {
+    background-color: lightcyan;
+    height: 250px;
+    width: 300px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: uppercase;
+    float: left;
+    margin: 10px 10px;
+    padding: 15px 15px;
+}
+
+.title {
+    font-size: large;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: blink;
+    font-family: auto;
+}
+
+.value {
+    font-size: 50px;
+    font-family: auto;
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.text {
+    font-size: 13px;
+    font-family: auto;
+    text-transform: capitalize;
+    margin-top: 8px;
+}
