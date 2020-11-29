@@ -4,7 +4,7 @@ import FusionCharts from 'fusioncharts';
 import Column2D from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
-export default function Chart(props) {
+function Chart(props) {
     // Preparing the chart data
 
     // Create a JSON object to store the chart configurations
@@ -16,8 +16,8 @@ export default function Chart(props) {
         dataSource: {
             // Chart Configuration
             chart: {
-                caption: "Countries With Most Oil Reserves [2017-18]", //Set the chart caption
-                subCaption: "In MMbbl = One Million barrels", //Set the chart subcaption
+                caption: "2018 Data", //Set the chart caption
+                
                 xAxisName: "Country", //Set the x-axis name
                 yAxisName: "Reserves (MMbbl)", //Set the y-axis name
                 numberSuffix: "K",
@@ -33,3 +33,4 @@ export default function Chart(props) {
         div >
     )
 }
+export default Chart;

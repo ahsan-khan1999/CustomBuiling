@@ -16,10 +16,10 @@ export default function DougnutChart(props) {
         dataSource: {
             // Chart Configuration
             chart: {
-                caption: "Countries With Most Oil Reserves [2017-18]", //Set the chart caption
-                subCaption: "In MMbbl = One Million barrels", //Set the chart subcaption
+                caption: "[2018] Data", //Set the chart caption
+                
                 xAxisName: "Country", //Set the x-axis name
-                yAxisName: "Reserves (MMbbl)", //Set the y-axis name
+                yAxisName: "Reserves (bbl)", //Set the y-axis name
                 numberSuffix: "K",
                 theme: "fusion" //Set the theme for your chart
             },

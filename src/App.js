@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import Dashboard from './Components/Dashboard'
 import Dropdown from 'react-dropdown'
 import Card from './Components/Card'
+import Chart from './Components/Chart'
+import DougnutChart from './Components/DougnutChart'
 import { Container, Col, Row } from 'react-bootstrap';
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
     let [referralSources, setReferralSources] = useState('');
     let [socialSources, setSocialSources] = useState('');
     let [emailSources, setEmailSources] = useState('');
-
+    let [chartArray, setChartArray] = useState([]);
     let [pageView, setPageView] = useState('');
     let [users, setUsers] = useState('');
     let [newUsers, setNewUSers] = useState('');
@@ -45,6 +47,7 @@ function App() {
         let newUser = null;
         let session = null;
         let bounseRates = null;
+        let chartArray = [''];
         for (let i = 0; i < arr.length; i++) {
             if (args === arr[i].month) {
                 organicSource = arr[i].organic_source;
@@ -57,7 +60,48 @@ function App() {
                 newUser = arr[i].new_users;
                 session = arr[i].sessions;
                 bounseRates = arr[i].bounce_rate;
+                chartArray.push(
+                    {
+                        label: "Organic Resources",
+                        value:  arr[i].organic_source 
+                    }, {
+                    label: "Direct Resources",
+                    value: arr[i].direct_source
 
+                }, {
+                    label: "Referral Resources",
+                    value:  arr[i].referral_source 
+                }, {
+                    label: "Social Resources",
+                    value: arr[i].social_source
+
+                }, {
+                    label: "Email Resources",
+                    value:  arr[i].email_source
+
+                }, {
+                    label: "Page View",
+                    value:  arr[i].page_views 
+
+                }, {
+
+                    label: "Users",
+                    value:  arr[i].users
+
+                }, {
+                    label: "New Users ",
+                    value:  arr[i].new_users 
+
+                }, {
+                    label: "Sessions",
+                    value:  arr[i].sessions 
+
+                }, {
+                    label: "Bounse Rate",
+                    value: arr[i].bounce_rate
+
+                },
+                )
             }
         }
         selected = args;
@@ -71,6 +115,7 @@ function App() {
         setNewUSers(newUser);
         setSessions(session);
         setBounseRate(bounseRates);
+        setChartArray(chartArray)
     }
 
     const update = (e) => {
@@ -139,10 +184,10 @@ function App() {
     }, [selected]);
     // console.log(newUsers)
     return (
-       
-            <
+
+        <
         div className="App" >
-<Container fluid>
+            <Container fluid>
                 <
         select value={selected}
                     onChange={
@@ -153,61 +198,64 @@ function App() {
             ))
         } <
         /select>
-        <
+                            <
         /Container>
-    
-    
-      
-    
-                                <
-                                    Card title="Organic Source"
-                                    value={organicSources}
-                                    description="Our Organic Sources" />
-
-                                <
-                                    Card title="Direct Source"
-                                    value={directSources}
-                                    description="Our Direct Sources" />
-
-                                <
-                                    Card title="referral Source"
-                                    value={referralSources}
-                                    description="Our Referral Sources" />
-
-                                <
-                                    Card title="social Source"
-                                    value={socialSources}
-                                    description="Our social Sources" />
-
-                                <
-                                    Card title="Email Source"
-                                    value={emailSources}
-                                    description="Our Email Sources" />
-
-                                <
-                                    Card title="Page Views "
-                                    value={pageView}
-                                    description="Our Page Views" />
-
-                                <
-                                    Card title="Users "
-                                    value={users}
-                                    description="Our Users" />
 
 
-                                <
-                                    Card title="New Users"
-                                    value={newUsers}
-                                    description="Our New Users" />
-                                <
-                                    Card title="Sessions"
-                                    value={sessions}
-                                    description="Our Sessions" />
 
-                                <
-                                    Card title="Bounce rate"
-                                    value={bounseRate}
-                                    description="Our Bounse Rate" />
+
+                            <
+                                Card title="Organic Source"
+                                value={organicSources}
+                                description="Our Organic Sources" />
+
+                            <
+                                Card title="Direct Source"
+                                value={directSources}
+                                description="Our Direct Sources" />
+
+                            <
+                                Card title="referral Source"
+                                value={referralSources}
+                                description="Our Referral Sources" />
+
+                            <
+                                Card title="social Source"
+                                value={socialSources}
+                                description="Our social Sources" />
+
+                            <
+                                Card title="Email Source"
+                                value={emailSources}
+                                description="Our Email Sources" />
+
+                            <
+                                Card title="Page Views "
+                                value={pageView}
+                                description="Our Page Views" />
+
+                            <
+                                Card title="Users "
+                                value={users}
+                                description="Our Users" />
+
+
+                            <
+                                Card title="New Users"
+                                value={newUsers}
+                                description="Our New Users" />
+                            <
+                                Card title="Sessions"
+                                value={sessions}
+                                description="Our Sessions" />
+
+                            <
+                                Card title="Bounce rate"
+                                value={bounseRate}
+                                description="Our Bounse Rate" />
+                            
+                            <Chart data={chartArray} />
+                            <DougnutChart data={chartArray} />
                                 <
         /
         div>

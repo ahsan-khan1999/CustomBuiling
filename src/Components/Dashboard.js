@@ -46,10 +46,7 @@ export default function Dashboard({ title, value, description }) {
         div >
 
 
-        <
-        Chart data = { chartData }
-        // title = { chartData.label }
-        / > <
+         <
         DougnutChart data = { chartData }
         />
 
